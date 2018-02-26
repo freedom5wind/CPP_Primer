@@ -1,0 +1,62 @@
+#include <iostream>
+
+int main()
+{
+	int sum = 0;
+
+	for (int i = 50; i <= 100; ++i)
+	{
+		sum += i;
+	}
+
+	std::cout << sum << std::endl;
+
+	system("pause");
+	return 0;
+}
+
+
+#include <iostream>
+
+int main()
+{
+	for (int i = 10; i >= 0; --i)
+	{
+		std::cout << i << std::endl;
+	}
+
+	system("pause");
+	return 0;
+}
+
+
+#include <iostream>
+
+int main()
+{
+	int v0, v1;
+
+	std::cout << "请输入两个整数：" << std::endl;
+	std::cin >> v0 >> v1;
+
+	if (v0 == v1)
+	{
+		std::cout << v0 << std::endl;
+		return 0;
+	}
+	else if (v0 > v1)
+	{
+		int temp = v0;
+		v0 = v1;
+		v1 = temp;
+	}
+
+	int i = v0;
+	for (; i <= v1; ++i)
+	{
+		std::cout << i << std::endl;
+	}
+
+	system("pause");
+	return 0;
+}
