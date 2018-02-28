@@ -1,0 +1,4 @@
+第一章：开始
+
+1.while(std:cin >> value)读输入流，直到文件结束符(end-of-file)，在Windows中是Ctrl+Z+Enter。
+
