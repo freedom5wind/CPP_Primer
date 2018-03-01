@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cctype>
+using std::vector;
+using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
+
+int main()	
+{
+	vector<string> str;
+	string temp;
+
+	while (cin >> temp)
+	{
+		str.push_back(temp);
+	}
+
+	for (auto &s : str)//修改的是字符串中的字符，也要加&，才能使修改后的结果保存到vector对象中
+	{
+		for (auto &i : s)
+		{
+			i = toupper(i);//使用函数后，要把返回值保存回去
+		}
+	}
+  
+  for(auto s : str)
+  {
+    cout << s << endl;
+  }
+
+	system("pause");
+	return 0;
+}
