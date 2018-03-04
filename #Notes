@@ -147,11 +147,13 @@ decltype类型指示符
 第三章：字符串、向量和数组
 
 3.1 命名空间的using声明
+
 （1）每个using声明引入命名空间中的一个成员。
       using namespace::name;
 （2）头文件不应包含using声明
 
 3.2 标准库类型string
+
 （1）声明：using std::string;
 （2）初始化string对象的方式：
       string s1;//默认初始化
@@ -230,3 +232,7 @@ decltype类型指示符
 （4）向vector对象中添加元素：push_back成员函数
       *注：vector对象能高效增长，所以通常都是创建一个空vector对象，再后续增加元素，性能更快。
            vector其他基本操作与string类似
+
+3.4 迭代器
+
+（1）
