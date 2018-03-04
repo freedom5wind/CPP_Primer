@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cctype>
+using std::vector;
+using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
+
+int main()	
+{
+	vector<int> vec{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+	cout << "相邻元素的和：" << endl;
+	for (auto it = vec.begin(); it + 1 != vec.end(); ++it)
+	{
+		cout << *it + *(it + 1) << endl;
+	}
+
+	//奇数个元素，中间位置元素不输出
+	cout << "首位元素的和" << endl;
+	for (auto it1 = vec.begin(), it2 = vec.end() - 1; it1 < it2; ++it1, --it2)
+	{
+		cout << *it1 + *it2 << endl;
+	}
+
+	system("pause");
+	return 0;
+}
