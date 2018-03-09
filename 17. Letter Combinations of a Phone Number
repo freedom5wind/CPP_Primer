@@ -1,0 +1,75 @@
+##1.Description
+
+Given a digit string, return all possible letter combinations that the number could represent.
+A mapping of digit to letters (just like on the telephone buttons) is given below.
+
+##3.My Answer
+
+//C++
+class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        vector<string> rst{};
+        if(digits.empty() || digits == "1" || digits == "0") return rst;
+        
+        vector<vector<string>> readstr{};//每个数字赋予一个指针，指向预设的对应vector<string>
+        
+        vector<vector<string>> strs{
+            {""},//0
+            {""},//1
+            {"a","b","c"},//2
+            {"d","e","f"},//3
+            {"g","h","i"},//4
+            {"j","k","l"},//5
+            {"m","n","o"},//6
+            {"p","q","r","s"},//7
+            {"t","u","v"},//8
+            {"w","x","y","z"},//9
+        };
+        
+        for(auto &p1 : digits)
+        {
+            readstr.push_back(strs[p1 - '0']);
+        }
+        
+        int count = 1;//记录最终结果个数
+        int alright = 1;//记录已经处理的可能数
+        for(auto &p2 : readstr)
+        {
+            count *= p2.size();
+        }
+        for(int i = 0; i < count; ++i)//向结果中添加count个空字符串
+        {
+            rst.push_back("");
+        }
+        
+        
+        for(auto &p3 : readstr)//每个元素代表一个按键
+        {
+            alright *= p3.size();
+            int j = 0;
+            auto p5 = rst.begin();
+            for(auto p4 = p3.begin(); j < count;)//每个元素代表一个按键中的一个字母
+            {
+                for(int i = count / alright; i > 0; --i)//越靠后，字符连续赋值越短
+                {
+                    *p5 += *p4;
+                    ++p5;
+                    ++j;
+                }
+                ++p4;
+                if(p4 == p3.end() && j < count)
+                {
+                    p4 = p3.begin();
+                }
+            }
+        }
+        
+        return rst;
+    }
+};
+
+##3.Notes
+
+这道题没有多余的循环，必须把所有可能都输出。
+注意指针、引用等类型的区分。
